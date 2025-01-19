@@ -20,3 +20,6 @@ RUN apt-get remove -y build-essential git postgresql-server-dev-16 \
 
 # Update postgresql.conf to load pgvector
 RUN echo "shared_preload_libraries = 'vector'" >> /usr/share/postgresql/postgresql.conf.sample
+
+# Add initialization script
+COPY init.sql /docker-entrypoint-initdb.d/

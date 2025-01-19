@@ -1,0 +1,12 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "docker-entrypoint.sh postgres"
+restartPolicyType = "on-failure"
+restartPolicyMaxRetries = 10
+
+[mount]
+source = "/var/lib/postgresql/data"
+destination = "/var/lib/postgresql/data"
